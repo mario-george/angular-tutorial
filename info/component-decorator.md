@@ -51,3 +51,10 @@ template:'<app-server></app-server><app-server></app-server>'
 # stylesUrl or styles property
 
 not a mandatory property
+
+takes an array
+
+stylesUrl:['path']
+styles:[`h3{
+color:red;
+}`]
