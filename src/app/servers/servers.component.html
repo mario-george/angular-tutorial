@@ -22,7 +22,14 @@
 <!-- <p>{{ serverName }}</p> -->
 <div>{{ allowNewServer }}</div>
 <!-- <div [innerHtml]="serverCreationMessage"></div> -->
-<div [innerHtml]="serverCreationMessage" *ngIf="serverCreated"></div>
+<div
+  [innerHtml]="serverCreationMessage"
+  *ngIf="serverCreated; else noServer"
+></div>
+
+<ng-template #noServer>
+  <p>Server was not created</p>
+</ng-template>
 <hr />
 
 <!-- assingment -->
