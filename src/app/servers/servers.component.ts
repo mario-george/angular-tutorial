@@ -13,7 +13,7 @@ export class ServersComponent {
   serverName = '';
   username = '';
   serverCreated = false;
-
+  servers = ['test1', 'test2'];
   constructor() {
     setTimeout(() => {
       this.allowNewServer = true;
@@ -24,6 +24,8 @@ export class ServersComponent {
     this.serverCreated = true;
     this.serverCreationMessage =
       'Server was created ' + 'Name is ' + this.serverName;
+
+    this.servers.push(this.serverName);
   }
 
   onInuptHandler(event: Event) {
