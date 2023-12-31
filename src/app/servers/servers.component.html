@@ -1,2 +1,53 @@
+<!-- <app-server></app-server>
 <app-server></app-server>
-<app-server></app-server>
+
+ -->
+
+<div>The Server id is {{ serverId }} and the status is {{ serverStatus }}</div>
+
+<button
+  class="rounded-lg bg-black text-white px-3 my-3"
+  (click)="onCreateServer()"
+  [disabled]="!allowNewServer"
+>
+  Add Server
+</button>
+
+<input
+  type="text"
+  (input)="onInuptHandler($event)"
+  class="border-2 rounded-lg w-full"
+  [(ngModel)]="serverName"
+/>
+<!-- <p>{{ serverName }}</p> -->
+<div>{{ allowNewServer }}</div>
+<!-- <div [innerHtml]="serverCreationMessage"></div> -->
+<div
+  [innerHtml]="serverCreationMessage"
+  *ngIf="serverCreated; else noServer"
+></div>
+
+<ng-template #noServer>
+  <p>Server was not created</p>
+</ng-template>
+<hr />
+
+<!-- assingment -->
+
+<div class="flex flex-col space-y-3 mx-3">
+  <label for="">Username</label>
+  <input type="text" [(ngModel)]="username" class="w-full" />
+
+  <button
+    [disabled]="username === ''"
+    class="text-left"
+    (click)="username = ''"
+    class=""
+  >
+    Reset Username
+  </button>
+</div>
+
+<hr />
+<!-- <app-server></app-server> -->
+<app-server *ngFor="let server of servers;"></app-server>
