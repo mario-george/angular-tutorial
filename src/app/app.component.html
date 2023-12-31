@@ -1,7 +1,26 @@
+<button
+  (click)="onToggle()"
+  class="border bg-sky-400 hover:bg-sky-200 transition-all duration-200 hover:text-black text-slate-600"
+>
+  Display details
+</button>
+<p *ngIf="showSecret">Secret password= my-password</p>
+<div
+  *ngFor="let log of logs; let i = index"
+  [ngStyle]="{ backgroundColor: i >= 5 ? 'blue' : 'transparent' }"
+  [ngClass]="{ 'text-white': i >= 5 }"
+>
+  <p>
+    {{ log }}
+  </p>
+</div>
+<hr class="my-24" />
+<hr />
+
 <h1>App component here</h1>
 <hr />
 <app-servers> </app-servers>
 <!-- assignment of creating 2 components (1manually and the other with cli) -->
 
 <div app-warning-alert></div>
-<div class="app-success-alert "></div>
+<div class="app-success-alert"></div>
